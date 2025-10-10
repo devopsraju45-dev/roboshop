@@ -1,5 +1,5 @@
  set -e
- curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash -
+ curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash - &>>/tmp/user.log
  yum install nodejs -y
  useradd roboshop
  curl -s -L -o /tmp/user.zip "https://github.com/roboshop-devops-project/user/archive/main.zip"
