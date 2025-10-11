@@ -10,9 +10,13 @@
 
  mysql_secure_installation
 
+ DEFAULT_PASSWORD=$(grep 'A temporary password' /var/log/mysqld.log | awk '{print $NF}')
+
+ echo "alter user 'root'@'localhost' identified with mysql_native_password by 'RoboShop@1';" | mysql -uroot -p${DEFAULT_PASSWORD}
+
  mysql -uroot -pRoboShop@1
 
-> uninstall plugin validate_password;
+#> uninstall plugin validate_password;
 
  curl -s -L -o /tmp/mysql.zip "https://github.com/roboshop-devops-project/mysql/archive/main.zip"
 
