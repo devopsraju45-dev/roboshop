@@ -29,13 +29,14 @@ fi
 
  echo cleaning old application
  rm -rf cart
+ rm -rf package-lock.json
  StatusCheck
 
  echo extract application archive
  unzip /tmp/cart.zip && mv cart-main cart
  StatusCheck
 
- cd /home/roboshop/cart/
+ cd /home/roboshop
  echo installing nodejs
  npm install --verbose
  StatusCheck
