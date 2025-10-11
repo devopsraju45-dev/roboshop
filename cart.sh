@@ -1,11 +1,4 @@
-StatusCheck() {
-   if [ $? -eq 0 ]; then
-     echo -e "\e success"
-   else
-     echo -e "failure"
-     exit 1
-   fi
-  }
+source common.sh
 
  echo setting nodejs
  curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash -
