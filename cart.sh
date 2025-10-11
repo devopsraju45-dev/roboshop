@@ -35,7 +35,7 @@ fi
  unzip /tmp/cart.zip && mv cart-main cart
  StatusCheck
 
- cd /home/roboshop/cart
+ cd /home/roboshop/cart/
  echo installing nodejs
  npm install --verbose
  StatusCheck
