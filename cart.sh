@@ -36,7 +36,7 @@ fi
  StatusCheck
 
  echo installing nodejs
- npm install
+ npm install --verbose
  StatusCheck
 
  echo configuring cart
