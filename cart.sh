@@ -22,8 +22,6 @@ fi
 
  echo cleaning old application
  rm -rf cart
- rm -rf package-lock.json
- cp /home/roboshop/cart/package.json /home/roboshop/
  StatusCheck
 
  echo extract application archive
