@@ -50,8 +50,7 @@ fi
  fi
 
  echo extract application archive
- unzip /tmp/cart.zip
- mv cart-main cart
+ unzip /tmp/cart.zip && mv cart-main cart
  cd cart
  if [ $? -eq 0 ]; then
    echo -e "\e success"
@@ -70,8 +69,7 @@ fi
  fi
 
  echo configuring cart
- mv /home/roboshop/cart/systemd.service /etc/systemd/system/cart.service
- systemctl daemon-reload
+ mv /home/roboshop/cart/systemd.service /etc/systemd/system/cart.service && systemctl daemon-reload
  if [ $? -eq 0 ]; then
    echo -e "\e success"
  else
@@ -80,8 +78,7 @@ fi
  fi
 
  echo starting cart service
- systemctl start cart
- systemctl enable cart
+ systemctl start cart && systemctl enable cart
   if [ $? -eq 0 ]; then
     echo -e "\e success"
   else
