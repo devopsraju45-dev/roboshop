@@ -6,6 +6,7 @@
    echo -e "\esuccess"
  else
    echo -e "failure"
+   exit
  fi
 
  echo install nodejs
@@ -14,6 +15,7 @@
     echo -e "\esuccess"
   else
     echo -e "failure"
+       exit
   fi
 
  echo adding user
@@ -22,6 +24,7 @@
      echo -e "\esuccess"
    else
      echo -e "failure"
+        exit
    fi
 
  echo downloading application content
@@ -31,6 +34,7 @@
    echo -e "\esuccess"
  else
    echo -e "failure"
+      exit
  fi
 
  echo cleaning old application
@@ -39,6 +43,7 @@
    echo -e "\esuccess"
  else
    echo -e "failure"
+      exit
  fi
 
  echo extract application archive
@@ -49,6 +54,7 @@
    echo -e "\esuccess"
  else
    echo -e "failure"
+      exit
  fi
 
  echo installing nodejs
@@ -57,6 +63,7 @@
    echo -e "\esuccess"
  else
    echo -e "failure"
+      exit
  fi
 
  echo configuring cart
@@ -66,6 +73,7 @@
    echo -e "\esuccess"
  else
    echo -e "failure"
+      exit
  fi
 
  echo starting cart service
