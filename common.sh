@@ -66,9 +66,17 @@ JAVA() {
    APP_USER_SETUP
    DOWNLOAD
    APP_CLEAN
-    cd /home/roboshop/shipping
-   mvn clean package
-   mv target/shipping-1.0.jar shipping.jar
+     echo "Extracting application archive"
+     cd /home/roboshop
+     unzip -o /tmp/${COMPONENT}.zip &>>/tmp/${COMPONENT}.log
+     mv ${COMPONENT}-main ${COMPONENT}
+     cd ${COMPONENT}
+     StatusCheck
+
+     echo "Building Java package"
+     mvn clean package &>>/tmp/${COMPONENT}.log
+     mv target/${COMPONENT}-1.0.jar ${COMPONENT}.jar
+     StatusCheck
 
    mv /home/roboshop/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service
    StatusCheck
