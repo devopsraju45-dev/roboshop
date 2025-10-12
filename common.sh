@@ -11,7 +11,6 @@ StatusCheck() {
 
          echo downloading ${COMPONENT} application content
          curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/roboshop-devops-project/${COMPONENT}/archive/main.zip" &>>/tmp/${COMPONENT}.log
-         cd /home/roboshop
          StatusCheck
 
  }
@@ -54,3 +53,6 @@ StatusCheck() {
     echo -e "the user should be an root user"
   exit 1
   fi
+
+  LOG=/tmp/${COMPONENT}.log
+  rm -f ${LOG}
