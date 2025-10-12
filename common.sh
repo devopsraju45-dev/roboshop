@@ -43,11 +43,9 @@ StatusCheck() {
      yum install nodejs -y
      StatusCheck
 
-    APP_USER_SETUP
-
-     DOWNLOAD
-
-     APP_CLEAN
+   APP_USER_SETUP
+   DOWNLOAD
+   APP_CLEAN
 
      echo extract application archive
      unzip /tmp/${COMPONENT}.zip && mv ${COMPONENT}-main ${COMPONENT}
