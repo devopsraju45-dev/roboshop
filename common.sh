@@ -66,6 +66,7 @@ JAVA() {
    APP_USER_SETUP
    DOWNLOAD
    APP_CLEAN
+    cd /home/roboshop
    mvn clean package
    mv target/shipping-1.0.jar shipping.jar
 
