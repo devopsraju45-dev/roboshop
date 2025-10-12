@@ -33,7 +33,7 @@ dnf module disable mysql
  fi
 
  echo "show plugins" | mysql -uroot -p$MYSQL_PASSWORD
-  if [ $? -ne 0 ]; then
+  if [ $? -eq 0 ]; then
     echo remove plugin
     echo "uninstall plugin validate_password" | mysql -uroot -p$MYSQL_PASSWORD
     StatusCheck
