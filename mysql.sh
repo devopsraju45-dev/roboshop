@@ -37,7 +37,7 @@ dnf module disable mysql
     echo remove plugin
     echo "uninstall plugin validate_password" | mysql -uroot -p$MYSQL_PASSWORD
     StatusCheck
-  f1
+  fi
 
  exit
 
