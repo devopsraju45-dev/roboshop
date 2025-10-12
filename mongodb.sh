@@ -1,11 +1,11 @@
  set -e
 
  echo Setup YUM repo
-curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/roboshop-devops-project/mongodb/main/mongo.repo &>>${LOG}
+curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/roboshop-devops-project/mongodb/main/mongo.repo
 StatusCheck
 
  echo Installing MONGODB
- yum install -y mongodb-org &>>${LOG}
+ yum install -y mongodb-org
  StatusCheck
 
  echo Start MONGODB service
