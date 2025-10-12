@@ -16,7 +16,7 @@ StatusCheck
 
 echo  Install rabbitmq
  yum install rabbitmq-server -y
- StstusCheck
+ StatusCheck
 
  systemctl enable rabbitmq-server
  systemctl start rabbitmq-server
