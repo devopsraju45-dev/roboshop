@@ -47,6 +47,7 @@ dnf module disable mysql
 
  curl -s -L -o /tmp/mysql.zip "https://github.com/roboshop-devops-project/mysql/archive/main.zip"
 
+ echo extract and load schema
  cd /tmp
  unzip mysql.zip
  cd mysql-main
