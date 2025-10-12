@@ -83,6 +83,23 @@ JAVA() {
 
    Systemd
 }
+
+PYTHON() {
+  echo Install Python
+   yum install python36 gcc python3-devel -y
+   StatusCheck
+
+   APP_USER_SETUP
+   DOWNLOAD
+   APP_CLEAN
+
+   echo Install Python Dependencies
+   cd /home/roboshop/payment
+   pip3 install -r requirements.txt
+   StatusCheck
+
+   Systemd
+ }
   USER_ID=$(id -u)
   if [ $USER_ID -ne 0 ]; then
     echo -e "the user should be an root user"
