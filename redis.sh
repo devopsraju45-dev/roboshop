@@ -11,6 +11,10 @@ echo setup YUM Repo
  yum install redis
  StatusCheck
 
+  echo Update Listen address
+  sed -i 's/1277.0.0.1/0.0.0.0/' /etc/redis.conf  /etc/redis/redis.conf
+  StatusCheck
+
  echo Start Redis service
  systemctl enable redis && systemctl start redis
  StatusCheck
