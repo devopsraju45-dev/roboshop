@@ -25,9 +25,12 @@ dnf module disable mysql
 
  mysql_secure_installation
 
- DEFAULT_PASSWORD=$(grep 'A temporary password' /var/log/mysqld.log | awk '{print $NF}')
-
- echo "alter user 'root'@'localhost' identified with mysql_native_password by 'RoboShop@1';" | mysql --connect-expired-password -uroot -p${DEFAULT_PASSWORD}
+ if [ $? -ne 0 ]; then
+  echo Changing Default Password
+  DEFAULT_PASSWORD=$(grep 'A temporary password' /var/log/mysqld.log | awk '{print $NF}')
+  echo "alter user 'root'@'localhost' identified with mysql_native_password by 'RoboShop@1';" | mysql --connect-expired-password -uroot -p${DEFAULT_PASSWORD}
+  StatusCheck
+ fi
 
  exit
 
