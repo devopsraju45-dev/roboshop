@@ -1,6 +1,12 @@
 source common.sh
 
-COMPONENT=mongodb
+COMPONENT=mysql
+
+if [ -z "$MYSQL_PASSWORD" ]; then
+  echo -e "mysql password is missing"
+  exit 1
+fi
+
 
 echo SETUP YUM REPO
 curl -s -L -o /etc/yum.repos.d/mysql.repo https://raw.githubusercontent.com/roboshop-devops-project/mysql/main/mysql.repo
@@ -21,11 +27,11 @@ dnf module disable mysql
 
  DEFAULT_PASSWORD=$(grep 'A temporary password' /var/log/mysqld.log | awk '{print $NF}')
 
- echo "alter user 'root'@'localhost' identified with mysql_native_password by 'RoboShop@1';" | mysql -uroot -p${DEFAULT_PASSWORD}
+ echo "alter user 'root'@'localhost' identified with mysql_native_password by 'RoboShop@1';" | mysql --connect-expired-password -uroot -p${DEFAULT_PASSWORD}
 
  exit
 
- mysql -uroot -pRoboShop@1
+ mysql -uroot -p$MYSQL_PASSWORD
 
 #> uninstall plugin validate_password;
 
