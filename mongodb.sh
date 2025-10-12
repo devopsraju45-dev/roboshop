@@ -1,4 +1,6 @@
- set -e
+source common.sh
+
+COMPONENT=mongodb
 
  echo Setup YUM repo
 curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/roboshop-devops-project/mongodb/main/mongo.repo
