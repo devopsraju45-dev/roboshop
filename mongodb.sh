@@ -11,14 +11,16 @@ StatusCheck
  yum install -y mongodb-org
  StatusCheck
 
+ echo Update Listen address
+ sed -i 's/1277.0.0.1/0.0.0.0/' /etc/mongod.conf
+ StatusCheck
+
  echo Start MONGODB service
  systemctl enable mongod
  systemctl start mongod
  systemctl restart mongod
 
- echo Update Listen address
- sed -i 's/1277.0.0.1/0.0.0.0/' /etc/mongod.conf
- StatusCheck
+
 
 
 DOWNLOAD
