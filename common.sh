@@ -7,6 +7,13 @@ StatusCheck() {
    fi
   }
 
+  DOWNLOAD{}{
+         echo downloading ${COMPONENT} application content
+         curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/roboshop-devops-project/${COMPONENT}/archive/main.zip" &>>/tmp/${COMPONENT}.log
+         cd /home/roboshop
+         StatusCheck
+           }
+
   NODEJS() {
      echo setting nodejs
      curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash -
@@ -22,10 +29,8 @@ StatusCheck() {
      useradd roboshop
     StatusCheck
     fi
-     echo downloading application content
-     curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/roboshop-devops-project/${COMPONENT}/archive/main.zip"
-     cd /home/roboshop
-     StatusCheck
+
+     DOWNLOAD
 
      echo cleaning old application
      rm -rf ${COMPONENT}
