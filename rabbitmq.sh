@@ -1,6 +1,7 @@
+COMPONENT=rabbitmq
 source common.sh
 
-COMPONENT=rabbitmq
+
 
 if [ -Z "$APP_RABBITMQ_PASSWORD" ]; then
   echo -e "env var rabbitmq password is needed"

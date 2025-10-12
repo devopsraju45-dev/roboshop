@@ -1,6 +1,7 @@
+COMPONENT=mysql
 source common.sh
 
-COMPONENT=mysql
+
 
 if [ -z "$MYSQL_PASSWORD" ]; then
   echo -e "mysql password is missing"
