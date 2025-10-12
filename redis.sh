@@ -12,7 +12,7 @@ echo setup YUM Repo
  StatusCheck
 
   echo Update Listen address
-  sed -i 's/1277.0.0.1/0.0.0.0/' /etc/redis.conf  /etc/redis/redis.conf
+  sed -i 's/1277.0.0.1/0.0.0.0/' /etc/redis.conf
   StatusCheck
 
  echo Start Redis service
