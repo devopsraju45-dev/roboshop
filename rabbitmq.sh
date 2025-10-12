@@ -21,9 +21,12 @@ echo  Install rabbitmq
  systemctl enable rabbitmq-server
  systemctl start rabbitmq-server
 
+rabbitmqctl list_users | grep roboshop
+if [ $? -ne 0 ]; then
  echo Add tags to rabbitmq
 
 
  rabbitmqctl add_user roboshop ${APP_RABBITMQ_PASSWORD}
  rabbitmqctl set_user_tags roboshop administrator
  rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"
+ fi
