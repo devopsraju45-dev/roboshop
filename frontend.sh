@@ -14,6 +14,7 @@ echo Clean Old Content
 cd /usr/share/nginx/html && rm -rf *
 StatusCheck
 
+
  echo Extract Download Content
  unzip -o /tmp/frontend.zip
  mv frontend-main/static/* .

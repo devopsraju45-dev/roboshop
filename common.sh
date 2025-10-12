@@ -7,12 +7,14 @@ StatusCheck() {
    fi
   }
 
-  DOWNLOAD{} {
+ DOWNLOAD() {
+
          echo downloading ${COMPONENT} application content
          curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/roboshop-devops-project/${COMPONENT}/archive/main.zip" &>>/tmp/${COMPONENT}.log
          cd /home/roboshop
          StatusCheck
-            }
+
+ }
 
 
   NODEJS() {
