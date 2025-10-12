@@ -15,7 +15,25 @@ StatusCheck() {
 
  }
 
+ Systemd(){
+   systemctl daemon-reload
+   systemctl start ${COMPONENT}
+   systemctl enable ${COMPONENT}
+   }
+ APP_USER_SETUP(){
 
+    id roboshop
+     if [ $? -ne 0 ]; then
+      echo adding user
+      useradd roboshop
+     StatusCheck
+     fi
+}
+  APP_CLEAN(){
+     echo cleaning old application
+     rm -rf ${COMPONENT}
+     StatusCheck
+}
   NODEJS() {
      echo setting nodejs
      curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash -
@@ -25,18 +43,11 @@ StatusCheck() {
      yum install nodejs -y
      StatusCheck
 
-    id roboshop
-    if [ $? -ne 0 ]; then
-     echo adding user
-     useradd roboshop
-    StatusCheck
-    fi
+    APP_USER_SETUP
 
      DOWNLOAD
 
-     echo cleaning old application
-     rm -rf ${COMPONENT}
-     StatusCheck
+     APP_CLEAN
 
      echo extract application archive
      unzip /tmp/${COMPONENT}.zip && mv ${COMPONENT}-main ${COMPONENT}
@@ -47,7 +58,22 @@ StatusCheck() {
      npm install --verbose
      StatusCheck
   }
+JAVA() {
+  echo Install Maven
+   yum install maven -y
+   StatusCheck
 
+   APP_USER_SETUP
+   DOWNLOAD
+   APP_CLEAN
+   mvn clean package
+   mv target/shipping-1.0.jar shipping.jar
+
+   mv /home/roboshop/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service
+   StatusCheck
+
+   Systemd
+}
   USER_ID=$(id -u)
   if [ $USER_ID -ne 0 ]; then
     echo -e "the user should be an root user"
