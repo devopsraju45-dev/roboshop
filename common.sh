@@ -16,6 +16,9 @@ StatusCheck() {
  }
 
  Systemd(){
+   sed -i -e 's/MONGO_DNSNAME/mongodb-dev.roboshop-internal/' /etc/systemd/system/${COMPONENT}.service
+   StatusCheck
+
    systemctl daemon-reload
    systemctl start ${COMPONENT}
    systemctl enable ${COMPONENT}
