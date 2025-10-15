@@ -21,6 +21,9 @@ StatusCheck
  mv frontend-main/localhost.conf /etc/nginx/default.d/roboshop.conf
  StatusCheck
 
+ sed -e '/catalogue/ s/localhost/catalogue-dev.learndevopspractice.online/' '/cart/ s/localhost/cart-dev.learndevopspractice.online/' '/user/ s/localhost/user-dev.learndevopspractice.online/' '/payement/ s/localhost/payement-dev.learndevopspractice.online/' /etc/nginx/default.d/roboshop.conf
+
+
  echo Start Nginx Service
  systemctl restart nginx
 
