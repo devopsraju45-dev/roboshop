@@ -20,7 +20,7 @@ StatusCheck() {
    StatusCheck
 
    systemctl daemon-reload
-   systemctl start ${COMPONENT}
+   systemctl restart ${COMPONENT}
    systemctl enable ${COMPONENT}
    }
  APP_USER_SETUP(){
