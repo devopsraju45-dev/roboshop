@@ -8,6 +8,6 @@
 
 
 
- mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
+ mv /home/centos/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
 Systemd
 
