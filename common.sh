@@ -19,6 +19,7 @@ StatusCheck() {
    sed -i -e 's/MONGO_DNSNAME/mongodb-dev.learndevopspractice.online/' /etc/systemd/system/${COMPONENT}.service
 
     mv /home/centos/roboshop/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service
+
    StatusCheck
 
    systemctl daemon-reload
