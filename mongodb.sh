@@ -20,7 +20,6 @@ StatusCheck
 
 
 
-
 DOWNLOAD
 
 echo extract scheama file
@@ -28,8 +27,12 @@ echo extract scheama file
  unzip mongodb.zip
  StatusCheck
 
+
  echo load schema
  cd mongodb-main
- mongo < catalogue.js
- mongo < users.js
+ for schema in catalogue.js users.js ; do
+   mongo < $schema
+ done
+ StatusCheck
+
 
